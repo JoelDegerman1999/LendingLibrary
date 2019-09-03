@@ -19,7 +19,7 @@ public class Book extends Material {
 	public String getIsbn() {
 		return isbn;
 	}
-	
+
 	public void sendForRepair() {
 		System.out.println("Book has been sent for repair!");
 	}

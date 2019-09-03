@@ -1,9 +1,18 @@
 package ui;
 
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import models.Book;
 import models.BookCatalog;
+import models.BookNotFoundException;
 import models.Customer;
 import models.DVD;
+import models.Loan;
+import models.LoanAlreadyExistsException;
+import models.LoanNotAvailableException;
+import models.LoanRegistry;
+import models.Magazine;
 import utilities.GenderType;
 
 public class Main {
@@ -14,7 +23,7 @@ public class Main {
 		Book book1 = new Book(1, "An introduction to Java", "Matt Greencroft", "Anytown Branch", "12345", 400);
 		Book book2 = new Book(2, "Better Java", "Joe Le Blanc", "Anytown Branch", "23456", 150);
 		DVD dvd1 = new DVD(3, "An epic film about Java", "Anytown Branch", "Steven Speilberg", "99887", 120);
-		
+
 		book1.relocate("MyCity Branch");
 		System.out.println(dvd1.getTitle());
 
@@ -26,21 +35,25 @@ public class Main {
 
 		ui.printBookCatalog(bookCatalog.getBookArray());
 
-		Book foundBook = bookCatalog.findBook("Better Java");
-
-		if (foundBook != null) {
+		try {
+			Book foundBook = bookCatalog.findBook("Better Jav");
 			System.out.println("We found " + foundBook.getTitle());
+		} catch (BookNotFoundException e) {
+			System.out.println("The book wasn't found");
 		}
 
 		Customer customer1 = new Customer("Mr", "Joel", "Degerman", "Kungsvägen 43A", "0703899686",
 				"joel.degerman1999@gmail.com", 1, GenderType.MALE);
-		System.out.println(customer1.getExpiryDate());
 
-		System.out.println(dvd1.lend(customer1));
-		dvd1.license();
-		System.out.println(dvd1.lend(customer1));
-		System.out.println(dvd1.lend(customer1));
+
+		LoanRegistry registry = new LoanRegistry();
+
+
 		
-		System.out.println(dvd1);
+		
+		
+		
+
+
 	}
 }
