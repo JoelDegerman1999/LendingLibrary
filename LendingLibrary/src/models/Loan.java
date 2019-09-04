@@ -24,10 +24,14 @@ public class Loan {
 		startDate = new Date();
 
 		GregorianCalendar gCal = new GregorianCalendar();
-		gCal.add(GregorianCalendar.WEEK_OF_YEAR, 2);
+		gCal.add(GregorianCalendar.DAY_OF_MONTH, 14);
 		dueDate = gCal.getTime();
 
 		status = LoanStatus.CURRENT;
+	}
+	
+	public Loan(Magazine magazine) throws LoanNotAvailableException{
+		throw new LoanNotAvailableException();
 	}
 
 	@Override

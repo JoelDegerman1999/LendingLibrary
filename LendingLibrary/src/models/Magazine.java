@@ -1,13 +1,17 @@
 package models;
 
+import utilities.LoanStatus;
+
 public class Magazine extends Material {
 
 	private int noPages;
 	private String publisher;
+	private LoanStatus status;
 
 	public Magazine(int id, String title, String branch, int noPages, String publisher) {
 		super(id, title, branch);
 		this.noPages = noPages;
+		status = LoanStatus.CANT_LEND;
 		this.publisher = publisher;
 	}
 

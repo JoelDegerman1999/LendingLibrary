@@ -44,7 +44,7 @@ public abstract class Material {
 		if(getClass() == obj.getClass()) {
 			Material otherClass = (Material) obj;
 			if(id == otherClass.id) {
-				return false;
+				return true;
 			}else {
 				return false;
 			}
