@@ -1,5 +1,7 @@
 package models;
 
+import models.exceptions.LoanAlreadyExistsException;
+import models.exceptions.LoanNotFoundException;
 import utilities.LoanStatus;
 
 public class LoanRegistry {

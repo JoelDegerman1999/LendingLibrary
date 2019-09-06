@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import models.Book;
 import models.BookCatalog;
-import models.BookNotFoundException;
+import models.exceptions.BookNotFoundException;
 
 public class BookCatalogTest {
 

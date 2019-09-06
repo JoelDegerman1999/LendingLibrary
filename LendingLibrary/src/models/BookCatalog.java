@@ -1,5 +1,7 @@
 package models;
 
+import models.exceptions.BookNotFoundException;
+
 public class BookCatalog {
 
 	private Book[] bookArray = new Book[100];

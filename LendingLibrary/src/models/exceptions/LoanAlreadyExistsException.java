@@ -1,4 +1,4 @@
-package models;
+package models.exceptions;
 
 public class LoanAlreadyExistsException extends Exception {
 

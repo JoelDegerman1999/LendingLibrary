@@ -3,6 +3,7 @@ package models;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import models.exceptions.LoanNotAvailableException;
 import utilities.LoanStatus;
 
 public class Loan {

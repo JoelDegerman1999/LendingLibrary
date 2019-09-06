@@ -2,14 +2,14 @@ package ui;
 
 import models.Book;
 import models.BookCatalog;
-import models.BookNotFoundException;
 import models.Customer;
 import models.DVD;
 import models.Loan;
-import models.LoanAlreadyExistsException;
-import models.LoanNotAvailableException;
 import models.LoanRegistry;
 import models.Magazine;
+import models.exceptions.BookNotFoundException;
+import models.exceptions.LoanAlreadyExistsException;
+import models.exceptions.LoanNotAvailableException;
 import utilities.GenderType;
 
 public class Main {
