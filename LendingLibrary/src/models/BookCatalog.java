@@ -1,31 +1,36 @@
 package models;
 
+import java.util.LinkedHashMap;
+import java.util.TreeMap;
+
 import models.exceptions.BookNotFoundException;
 
 public class BookCatalog {
 
-	private Book[] bookArray = new Book[100];
-	private int nextPostion = 0;
+	private TreeMap<String, Book> bookMap;
 
-	public Book[] getBookArray() {
-		return bookArray;
+	public BookCatalog() {
+		bookMap = new TreeMap<String, Book>();
+	}
+	
+	public TreeMap<String, Book> getBookMap() {
+		return bookMap;
 	}
 
 	public int getNumberOfBooks() {
-		return nextPostion;
+		return bookMap.size();
 	}
 
 	public void addBook(Book newBook) {
-		bookArray[nextPostion] = newBook;
-		nextPostion++;
+		bookMap.put(newBook.getId(), newBook);
 	}
 
 	public Book findBook(String title) throws BookNotFoundException {
 		title = title.trim();
 
-		for (int i = 0; i < nextPostion; i++) {
-			if (bookArray[i].getTitle().equalsIgnoreCase(title)) {
-				return bookArray[i];
+		for(Book nextBook : bookMap.values()) {
+			if (nextBook.getTitle().equalsIgnoreCase(title)) {
+				return nextBook;
 			}
 		}
 		throw new BookNotFoundException();

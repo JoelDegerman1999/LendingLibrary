@@ -1,41 +1,39 @@
 package models;
 
+import java.util.ArrayList;
+
 import models.exceptions.LoanAlreadyExistsException;
 import models.exceptions.LoanNotFoundException;
 import utilities.LoanStatus;
 
 public class LoanRegistry {
-	private Loan[] registry;
+	private ArrayList<Loan> registry;
 	private int nextPostion;
 
 	public LoanRegistry() {
-		registry = new Loan[100];
+		registry = new ArrayList<Loan>();
 		nextPostion = 0;
 	}
 
 	public void addLoan(Loan loan) throws LoanAlreadyExistsException {
-		for (int i = 0; i < nextPostion; i++) {
-			if (registry[i].equals(loan)) {
-				throw new LoanAlreadyExistsException();
-			}
+		if (registry.contains(loan)) {
+			throw new LoanAlreadyExistsException();
 		}
-
-		registry[nextPostion] = loan;
-		nextPostion++;
-
+		registry.add(loan);
 	}
 
-	public Loan findLoan(int bookID) throws LoanNotFoundException {
-		for (int i = 0; i < nextPostion; i++) {
-			if (registry[i].getBorrowedBook().getId() == bookID && registry[i].getStatus() == LoanStatus.CURRENT) {
-				return registry[i];
+	public Loan findLoan(String bookID) throws LoanNotFoundException {
+
+		for (Loan loan : registry) {
+			if (loan.getBorrowedBook().getId().equals(bookID) && loan.getStatus() == LoanStatus.CURRENT) {
+				return loan;
 			}
 		}
 
 		throw new LoanNotFoundException();
 	}
 
-	public boolean isBookOnLoan(int bookID) {
+	public boolean isBookOnLoan(String bookID) {
 		try {
 			Loan foundLoan = findLoan(bookID);
 			return true;
