@@ -16,7 +16,7 @@ public class CustomerRecords {
 		records.add(customer);
 	}
 	
-	public Customer findByName(String name) throws CustomerNotFoundException{
+	public Customer findByMailingName(String name) throws CustomerNotFoundException{
 		for(Customer customer : records) {
 			if(customer.getMailingName().equalsIgnoreCase(name)) {
 				return customer;

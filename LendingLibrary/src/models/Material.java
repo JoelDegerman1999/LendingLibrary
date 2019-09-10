@@ -34,7 +34,7 @@ public abstract class Material {
 	}
 	
 	public String toString() {
-		return title;
+		return id + " : " + title;
 	}
 	
 	public boolean equals(Object obj) {

@@ -31,7 +31,7 @@ public class CustomerRecordsTest {
 	@Test
 	public void testFindCustomer() {
 		try {
-			Customer foundCustomer = records.findByName("Mrs M Smith");
+			Customer foundCustomer = records.findByMailingName("Mrs M Smith");
 		} catch (CustomerNotFoundException e) {
 			fail("Customer not found");
 		}

@@ -29,5 +29,25 @@ public class DVD extends Material {
 	public int getLoanPeriod() {
 		return 7;
 	}
+	
+	public int getRunningTime() {
+		return runningTime;
+	}
+	
+	public boolean getLicenced() {
+		return isLicensed;
+	}
+	
+	public String getCatalogNumber() {
+		return catalogNo;
+	}
+	
+	public String getDirector() {
+		return director;
+	}
 
+	@Override
+	public String toString() {
+		return "DVD: " + getId() + " " + getTitle() + " / " + getDirector();
+	}
 }

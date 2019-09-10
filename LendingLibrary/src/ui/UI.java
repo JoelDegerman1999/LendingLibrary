@@ -1,9 +1,9 @@
 package ui;
 
-import java.util.LinkedHashMap;
-import java.util.TreeMap;
+import java.util.Map;
 
 import models.Book;
+import models.Material;
 
 public class UI {
 
@@ -33,11 +33,11 @@ public class UI {
 		return fixLengthString(startString, length);
 	}
 
-	public void printBookCatalog(TreeMap<String, Book> bookCatalog) {
-		for(Book nextBook : bookCatalog.values()) {
-			printBook(nextBook);
+	public void printMaterialCatalog(Map<String, Material> materialCatalog) {
+		for (Material nextMaterial : materialCatalog.values()) {
+			System.out.println(nextMaterial);
 		}
-		
+
 	}
 
 }
